@@ -7,7 +7,12 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "@jamescoyle/vue-icon": "^0.1.2",
+    "@mdi/font": "^7.3.67",
+    "@mdi/js": "^7.3.67",
+    "axios": "^1.6.2",
     "core-js": "^3.8.3",
+    "json-server": "^0.17.4",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
     "vuetify": "^3.4.7"

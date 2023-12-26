@@ -1,0 +1,344 @@
+{
+  "user": {
+    "name": "hamada",
+    "emails": "example@email.com",
+    "passwsord": "your_password_here",
+    "contacts": [],
+    "folders": {
+      "inbox": {
+        "name": "inbox",
+        "emails": [
+          {
+            "isStared": false,
+            "isSelected": false,
+            "from": "sender1@example.com",
+            "to": ["recipient1@example.com", "recipient2@example.com"],
+            "date": "2023-12-18",
+            "subject": "Meeting Invitation",
+            "body": "Please join us for an important meeting."
+          },
+          {
+            "isStared": false,
+            "isSelected": false,
+            "from": "sender2@example.com",
+            "to": ["recipient3@example.com"],
+            "date": "2023-12-19",
+            "subject": "Project Update",
+            "body": "Here is the latest update on the project."
+          },
+          {
+            "isStared": false,
+            "isSelected": false,
+            "from": "sender3@example.com",
+            "to": ["recipient1@example.com", "recipient4@example.com"],
+            "date": "2023-12-20",
+            "subject": "Holiday Greetings",
+            "body": "Wishing you a joyful holiday season!"
+          },
+          {
+            "isStared": false,
+            "isSelected": false,
+            "from": "sender4@example.com",
+            "to": ["recipient2@example.com", "recipient5@example.com"],
+            "date": "2023-12-21",
+            "subject": "Important Update",
+            "body": "This is an important update. Please read carefully."
+          },
+          {
+            "isStared": false,
+            "isSelected": false,
+            "from": "sender5@example.com",
+            "to": ["recipient1@example.com"],
+            "date": "2023-12-22",
+            "subject": "Urgent Notice",
+            "body": "This is an urgent notice. Take immediate action."
+          },
+          {
+            "isStared": false,
+            "isSelected": false,
+            "from": "sender6@example.com",
+            "to": ["recipient3@example.com"],
+            "date": "2023-12-23",
+            "subject": "Feedback Request",
+            "body": "We would like to hear your feedback on our latest project."
+          },
+          {
+            "isStared": false,
+            "isSelected": false,
+            "from": "sender7@example.com",
+            "to": ["recipient4@example.com"],
+            "date": "2023-12-24",
+            "subject": "Season's Greetings",
+            "body": "Wishing you a wonderful holiday season and a Happy New Year!"
+          },
+          {
+            "isStared": false,
+            "isSelected": false,
+            "from": "sender8@example.com",
+            "to": ["recipient5@example.com"],
+            "date": "2023-12-25",
+            "subject": "Christmas Celebration",
+            "body": "Join us for a Christmas celebration on the 25th."
+          },
+          {
+            "isStared": false,
+            "isSelected": false,
+            "from": "sender9@example.com",
+            "to": ["recipient1@example.com"],
+            "date": "2023-12-26",
+            "subject": "Year-End Party",
+            "body": "Celebrate the end of the year with us at the annual party."
+          },
+          {
+            "isStared": false,
+            "isSelected": false,
+            "from": "sender10@example.com",
+            "to": ["recipient2@example.com"],
+            "date": "2023-12-27",
+            "subject": "Upcoming Events",
+            "body": "Stay tuned for exciting events in the coming weeks."
+          },
+          {
+            "isStared": false,
+            "isSelected": false,
+            "from": "sender1@example.com",
+            "to": ["recipient1@example.com", "recipient2@example.com"],
+            "date": "2023-12-18",
+            "subject": "Meeting Invitation",
+            "body": "Please join us for an important meeting."
+          },
+          {
+            "isStared": false,
+            "isSelected": false,
+            "from": "sender2@example.com",
+            "to": ["recipient3@example.com"],
+            "date": "2023-12-19",
+            "subject": "Project Update",
+            "body": "Here is the latest update on the project."
+          },
+          {
+            "isStared": false,
+            "isSelected": false,
+            "from": "sender3@example.com",
+            "to": ["recipient1@example.com", "recipient4@example.com"],
+            "date": "2023-12-20",
+            "subject": "Holiday Greetings",
+            "body": "Wishing you a joyful holiday season!"
+          },
+          {
+            "isStared": false,
+            "isSelected": false,
+            "from": "sender4@example.com",
+            "to": ["recipient2@example.com", "recipient5@example.com"],
+            "date": "2023-12-21",
+            "subject": "Important Update",
+            "body": "This is an important update. Please read carefully."
+          },
+          {
+            "isStared": false,
+            "isSelected": false,
+            "from": "sender5@example.com",
+            "to": ["recipient1@example.com"],
+            "date": "2023-12-22",
+            "subject": "Urgent Notice",
+            "body": "This is an urgent notice. Take immediate action."
+          },
+          {
+            "isStared": false,
+            "isSelected": false,
+            "from": "sender6@example.com",
+            "to": ["recipient3@example.com"],
+            "date": "2023-12-23",
+            "subject": "Feedback Request",
+            "body": "We would like to hear your feedback on our latest project."
+          },
+          {
+            "isStared": false,
+            "isSelected": false,
+            "from": "sender7@example.com",
+            "to": ["recipient4@example.com"],
+            "date": "2023-12-24",
+            "subject": "Season's Greetings",
+            "body": "Wishing you a wonderful holiday season and a Happy New Year!"
+          },
+          {
+            "isStared": false,
+            "isSelected": false,
+            "from": "sender8@example.com",
+            "to": ["recipient5@example.com"],
+            "date": "2023-12-25",
+            "subject": "Christmas Celebration",
+            "body": "Join us for a Christmas celebration on the 25th."
+          },
+          {
+            "isStared": false,
+            "isSelected": false,
+            "from": "sender9@example.com",
+            "to": ["recipient1@example.com"],
+            "date": "2023-12-26",
+            "subject": "Year-End Party",
+            "body": "Celebrate the end of the year with us at the annual party."
+          },
+          {
+            "isStared": false,
+            "isSelected": false,
+            "from": "sender10@example.com",
+            "to": ["recipient2@example.com"],
+            "date": "2023-12-27",
+            "subject": "Upcoming Events",
+            "body": "Stay tuned for exciting events in the coming weeks."
+          }
+        ],
+        "subFolders": []
+      },
+      "draft": {
+        "name": "draft",
+        "emails": [
+          {
+            "isStared": false,
+            "isSelected": false,
+            "from": "sender11@example.com",
+            "to": ["recipient3@example.com", "recipient4@example.com"],
+            "date": "2023-12-28",
+            "subject": "Draft Email 1",
+            "body": "This is a draft email. Review and finalize."
+          },
+          {
+            "isStared": false,
+            "isSelected": false,
+            "from": "sender12@example.com",
+            "to": ["recipient5@example.com"],
+            "date": "2023-12-29",
+            "subject": "Draft Email 2",
+            "body": "Another draft content for your review."
+          },
+          {
+            "from": "sender13@example.com",
+            "to": ["recipient1@example.com"],
+            "date": "2023-12-30",
+            "subject": "Draft Email 3",
+            "body": "Review and provide feedback on this draft."
+          },
+          {
+            "from": "sender14@example.com",
+            "to": ["recipient2@example.com"],
+            "date": "2023-12-31",
+            "subject": "Draft Email 4",
+            "body": "Important draft content. Please review."
+          },
+          {
+            "from": "sender15@example.com",
+            "to": ["recipient3@example.com"],
+            "date": "2024-01-01",
+            "subject": "Draft Email 5",
+            "body": "Begin the new year by reviewing this draft."
+          },
+          {
+            "from": "sender16@example.com",
+            "to": ["recipient4@example.com"],
+            "date": "2024-01-02",
+            "subject": "Draft Email 6",
+            "body": "Draft content for the second day of the year."
+          },
+          {
+            "from": "sender17@example.com",
+            "to": ["recipient5@example.com"],
+            "date": "2024-01-03",
+            "subject": "Draft Email 7",
+            "body": "Review and finalize this draft email."
+          },
+          {
+            "from": "sender18@example.com",
+            "to": ["recipient1@example.com"],
+            "date": "2024-01-04",
+            "subject": "Draft Email 8",
+            "body": "Another draft for your consideration."
+          },
+          {
+            "from": "sender19@example.com",
+            "to": ["recipient2@example.com"],
+            "date": "2024-01-05",
+            "subject": "Draft Email 9",
+            "body": "Ninth draft. Please review and provide feedback."
+          },
+          {
+            "from": "sender20@example.com",
+            "to": ["recipient3@example.com"],
+            "date": "2024-01-06",
+            "subject": "Draft Email 10",
+            "body": "Tenth and final draft for your approval."
+          }
+        ],
+        "subFolders": []
+      },
+      "labels": [
+        {
+          "name": "djdj",
+          "emails": [
+            "label1@example.com",
+            "label2@example.com",
+            "label3@example.com",
+            "label4@example.com",
+            "label5@example.com",
+            "label6@example.com",
+            "label7@example.com",
+            "label8@example.com",
+            "label9@example.com",
+            "label10@example.com"
+          ]
+        },
+        {
+          "name": "bxbxb",
+          "emails": [
+            "label11@example.com",
+            "label12@example.com",
+            "label13@example.com",
+            "label14@example.com",
+            "label15@example.com",
+            "label16@example.com",
+            "label17@example.com",
+            "label18@example.com",
+            "label19@example.com",
+            "label20@example.com"
+          ]
+        },
+        {
+          "name": "mlllmll",
+          "emails": [
+            "label21@example.com",
+            "label22@example.com",
+            "label23@example.com",
+            "label24@example.com",
+            "label25@example.com",
+            "label26@example.com",
+            "label27@example.com",
+            "label28@example.com",
+            "label29@example.com",
+            "label30@example.com"
+          ]
+        }
+      ]
+    }
+  },
+  "labels":["bassam", "joeeeeee", "domiaaaaty"],
+  "contacts": [
+    {
+      "name": "Bassam",
+      "emailAddresses": ["ncnc@email.com", "mourad@email.com"],
+      "phoneNums": ["01000000000", "01111111111"],
+      "importance": "1"
+    },
+    {
+      "name": "Joe",
+      "emailAddresses": ["joe@email.com", "jdhjdhdj@email.com"],
+      "phoneNums": ["01222222222", "01333333333"],
+      "importance": "1"
+    },
+    {
+      "name": "Domiaty",
+      "emailAddresses": ["mourad@email.com", "mourad@email.com"],
+      "phoneNums": ["01444444444", "01555555555"],
+      "importance": "1"
+    }
+  ]
+}
