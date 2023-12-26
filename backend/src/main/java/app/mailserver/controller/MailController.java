@@ -1,11 +1,11 @@
 package app.mailserver.controller;
 
 
+import java.io.IOException;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +15,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import app.mailserver.models.MailModel;
 import app.mailserver.models.RequestObject;
-import app.mailserver.models.UserModel;
 import app.mailserver.service.MailService;
 
 @RestController
@@ -28,7 +27,7 @@ public class MailController {
     private ObjectMapper objectMapper;
 
     @PutMapping("/sendEmail")
-    public String sendEmail(@RequestBody RequestObject params) {
+    public String sendEmail(@RequestBody RequestObject params) throws IOException {
         
        Map<String, Object> emailParams = (Map<String, Object>) params.get("email");
        MailModel newEmail = objectMapper.convertValue(emailParams, MailModel.class);

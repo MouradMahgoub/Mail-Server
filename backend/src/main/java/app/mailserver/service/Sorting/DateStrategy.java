@@ -15,7 +15,7 @@ public class DateStrategy implements SortingStrategy {
     @Override
     public List<MailModel> sort(List<MailModel> emails) {
         List<MailModel> sortedEmails = new ArrayList<>(emails);
-        sortedEmails.sort(Comparator.comparing(mail -> toLocalDateTime(((MailModel) mail).getDate())).reversed());
+        sortedEmails.sort(Comparator.comparing(mail -> toLocalDateTime(((MailModel) mail).getDate())));
         return sortedEmails;
     }
 

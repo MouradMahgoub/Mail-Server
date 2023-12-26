@@ -2,100 +2,116 @@ package app.mailserver.service.SystemManagement;
 import app.mailserver.models.MailModel;
 import app.mailserver.models.UserModel;
 
-import java.util.List;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class SystemFolders {
-    private static List<UserModel> allUsers;
+    private static SystemFolders instance; 
     private static  UserModel curUser;
 
-    public static UserModel signUp(String name,String emailAddress, String password){
-        fetchAllUsers();
-        if(isUserExist(emailAddress)){
-            return null;
+
+    private SystemFolders() {}
+
+    public static  SystemFolders getInstance() {
+        if (instance == null) {
+            instance = new SystemFolders();
+        }
+        return instance;
+    }
+
+    public  UserModel getCurUser() {
+            return curUser;
+        }
+
+    public  Map<String, Object> signUp(String name,String emailAddress, String password) throws IOException{
+       
+        Map<String, Object> response = new HashMap<String, Object>();
+        response.put("isValid",false);
+        response.put("message","done");
+
+
+        if(name.equals("")){
+            response.put("message","please enter user name!");
+                return response;
+        }   
+        else if(JsonFileHandler.isUserExist(emailAddress)){
+            response.put("message","email address is already registered!");
+                return response;
+        }
+        else if(!isValidEmail(emailAddress)){
+            response.put("message","email format is not valid!");
+             return response;
+        }
+        else if(password.length()<6){
+        response.put("message","password is too short! (enter at least 6 chars)");
+                return response;
         }
         else{
-            UserModel newUser=new UserModel(name,emailAddress,password);
-            allUsers.add(newUser);
-            curUser=newUser;
-            updateAllUsers();
-
-            return curUser; 
+        response.put("isValid",true);
+        UserModel newUser=new UserModel(name,emailAddress,password);
+     
+        curUser=newUser;
+        JsonFileHandler.writeUserModel(curUser);
+        
+        return response; 
         }
     }
 
-    public static boolean loginChecker(String emailAddress,String password){
-        fetchAllUsers();
-        // List<UserModel> x=allUsers;
-        if(!isUserExist(emailAddress)){
-            //if we want to type message"user not found"
-            return false;
+    public  Map<String, Object> loginChecker(String emailAddress,String password){
+        
+        Map<String, Object> response = new HashMap<String, Object>();
+        response.put("isValid",false);
+        response.put("message","done");
+
+        if(!JsonFileHandler.isUserExist(emailAddress)){
+         response.put("message","user not found!");
+            return response;
         }
         else{
-             if(getUser(emailAddress).getPassword().equals(password)){
-                curUser= getUser(emailAddress);
-                return true;
-            //we can type a message here
+            UserModel tempUser= JsonFileHandler.fetchUser(emailAddress);
+             if(tempUser.getPassword().equals(password)){
+                curUser= tempUser;
+                response.put("isValid",true);
+                 return response;
+             }
+             else{
+               response.put("message","password is not correct!");
+               return response;
              }
         }
-     return false;
-    }
-
-    public static UserModel getCurUser() {
-        return curUser;
-    }
-
-    public static void fetchAllUsers(){
-        allUsers=JsonFileHandler.fetchAllUsers();
-    }
-
-    //search in this.allUsers and set the user to the changedUser then update the file using json file handler 
-    public static void updateUser(UserModel changedUser){
-        for(int i = 0; i < allUsers.size(); i++){
-            UserModel x = allUsers.get(i);
-            if(x.getEmailAddress().equals(changedUser.getEmailAddress())){
-                allUsers.set(i, changedUser); // Update the list at the specific index
-                // Assuming you have a method to save the updated list to a file
-                
-                updateAllUsers();
-            }
-        }
+    
     }
     
-    //take an email and put it in receiver inbox and change the receiver to be me and the sender 
-    public static void sendEmailTo(MailModel email ,String receiverAddress){
-           
-           UserModel receiver=getUser(receiverAddress);
-           receiver.getFolders().addEmailTo("inbox", email); 
-
-    }
-
-    // search in this.allUsers and return a user model 
-    public static boolean isUserExist(String emailAddress){
-     for(var x :allUsers){
-        if(x.getEmailAddress().equals(emailAddress))
-        return true;
-      }
-      return false;
-    }
-
-    //get user by address 
-    public static UserModel getUser(String emailAddress){
-
-       for(var x :allUsers){
-          if(x.getEmailAddress().equals(emailAddress))
-            return x;
+    public  void updateUser(UserModel changedUser) {
+       try {
+           JsonFileHandler.writeUserModel(changedUser);
+       } catch (Exception e) {
+        
        }
-
-       return null;
+    }
+   
+    public  boolean isUserExist(String emailAddress) {
+        return JsonFileHandler.isUserExist(emailAddress);
     }
     
-    public static void updateAllUsers(){
-          try {
-                 JsonFileHandler.updateAllUsers(allUsers);
-          } catch (Exception e) {
-                    return;
-          }
-         
-     }
+    public  void sendEmailTo(MailModel email ,String receiverAddress) throws IOException{
+           
+          UserModel receiver= JsonFileHandler.fetchUser(receiverAddress);
+          receiver.getFolders().addEmailTo("inbox", email); 
+          JsonFileHandler.writeUserModel(receiver);
+    }
+
+    public  boolean isValidEmail(String email) {
+        String regex = "^[A-Za-z0-9+_.-]+@(.+\\.com)$";
+        
+        Pattern pattern = Pattern.compile(regex);
+        
+        Matcher matcher = pattern.matcher(email);
+        
+        return matcher.matches();
+    }
 }

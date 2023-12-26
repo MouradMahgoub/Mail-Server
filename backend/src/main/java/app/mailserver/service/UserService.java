@@ -1,5 +1,9 @@
 package app.mailserver.service;
 
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.stereotype.Service;
 
 import app.mailserver.models.UserModel;
@@ -9,27 +13,36 @@ import app.mailserver.service.SystemManagement.SystemFolders;
 public class UserService {
     private UserModel curUser;
 
-    public UserModel login(String emailAddress, String password) {
+    private SystemFolders systemFolders; // Field to store the singleton instance
 
-        if (SystemFolders.loginChecker(emailAddress, password)) {
-
-            this.curUser = SystemFolders.getCurUser();
-            return curUser;
-        }
-        return null;
+    public UserService() {
+        this.systemFolders = SystemFolders.getInstance(); // Initialize the singleton instance
     }
 
-    public UserModel signUp(String name, String emailAddress, String password) {
-        if (SystemFolders.signUp(name, emailAddress, password) != null) {
+    public Map<String, Object> login(String emailAddress, String password) {
+       
+        Map<String, Object> response = new HashMap<String, Object>();
+        response=systemFolders.loginChecker(emailAddress, password);
 
-            curUser = SystemFolders.getCurUser();
+        if ((boolean)response.get("isValid")) {
 
-            return curUser;
+            this.curUser = systemFolders.getCurUser();
+            return response;
         }
-        return null;
+        return response;
     }
 
+    public Map<String, Object> signUp(String name, String emailAddress, String password) throws IOException {
+        Map<String, Object> response = new HashMap<String, Object>();
+        response=systemFolders.signUp(name, emailAddress, password);
 
+        if ((boolean)response.get("isValid")) {
+
+            curUser = systemFolders.getCurUser();
+        }
+        return response;
+    }
+   
     public void logOut() {
 
     }
