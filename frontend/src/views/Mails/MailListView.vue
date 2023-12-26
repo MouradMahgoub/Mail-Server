@@ -90,7 +90,7 @@
     methods: {
         async fetchData(){
             try {
-                fetch('http://localhost:8081/getEmails')
+                fetch('http://localhost:3000/user')
                 .then(response => response.json())
                 .then(data => {
                     this.user = data;

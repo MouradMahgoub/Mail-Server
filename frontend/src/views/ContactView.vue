@@ -1,7 +1,9 @@
 <template>
   <!-- show the contacts as a list with a pgination and and make it available to show the contacts details and add a new contacts. besides, edit the contact[rename it, add or delete contact, add or delete emails and add or delete phones of the contact ]  -->
     <div>
-
+      <v-btn @click="createContact" color="orange">
+        Add contacts
+      </v-btn>
       <div v-for="contact in contacts" :key="contact.name" class="contact">
         <v-list-item @click="openContactDialog(contact)">
           <div class="bs">
@@ -83,7 +85,7 @@
 
         </v-card-text>
         <v-card-actions>
-          <v-btn color="blue darken-1" text @click="saveContact">Save</v-btn>
+          <v-btn color="blue darken-1" text @click="changeContacts">Save</v-btn>
           <v-btn color="blue darken-1" text @click="deleteContact">Delete</v-btn>
         </v-card-actions>
       </v-card>
@@ -102,7 +104,7 @@ export default {
       sortKey: null,
       filterKey: null,
 
-
+      name: '',
       
       addEmailDialog: false,
       newEmail: '',
@@ -111,13 +113,14 @@ export default {
             contactDialog: false,
       editingContact: {
         name: '',
-        emails:[],
-        phones:[],
+        emailAddresses:[],
+        phoneNums:[],
+        importance: '',
       },
         }
     },
     methods:{
-        //send a post request to the server to change to contacts and recieve them
+        // send a post request to the server to change to contacts and recieve them
         async fetchContacts(){
             await fetch('http://localhost:3000/contacts')
             .then(response => response.json())
@@ -130,14 +133,67 @@ export default {
             });
         },
 
+        async changeContacts(){
+
+          let x = {
+          params:
+          {
+            contact:
+            {
+              name: this.editingContact.name,
+              emailAddresses: this.editingContact.emailAddresses,
+              phoneNums: this.editingContact.phoneNums,
+              importance: this.editingContact.importance
+            }
+        }
+
+        };
+        console.log(JSON.stringify(x, null, 2));
+        fetch('http://localhost:8081/addContact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(x),
+      })
+          .then(res =>res.json())
+          .then((data) => {
+            console.log("moura")
+        this.contacts = data;
+
+        console.log(JSON.stringify(this.contacts, null, 2));
+        console.log("moura")
+
+        // if (this.y.isValid) {
+        //   // Redirect to the list page after successful signup
+        //   this.$router.push('/list');
+        // } else {
+        //   console.error('Error during signup:', this.y.error);
+        // }
+      })
+
+
+
+
+        },
+
     openContactDialog(contact) {
       this.contactDialog = true;
       this.editingContact = { ...contact };
     },
-    saveContact() {
-      // Your code to save the edited contact
-      this.contactDialog = false;
-    },
+    createContact() {
+  this.editingContact = {
+    name: '',
+    emailAddresses: [],
+    phoneNums: [],
+    importance: '',
+  };
+  this.contactDialog = true;
+},
+    // saveContact() {
+    //   // Your code to save the edited contact
+    //   this.contactDialog = false;
+    // },
     deleteContact() {
       // Your code to delete the contact
       this.contactDialog = false;
