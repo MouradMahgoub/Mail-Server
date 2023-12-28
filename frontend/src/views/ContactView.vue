@@ -345,8 +345,6 @@ export default {
                 .then(response => response.json())
                 .then(data => {
                     this.contacts = data;
-                    console.log("searched...........................");
-                    console.log(data);
                 })
                 .catch(error => console.error('Error applying filters:', error));
             }
@@ -501,9 +499,11 @@ console.log(JSON.stringify(this.contacts, null, 2));
     },
     addPhone() {
       this.editingContact.phoneNums.push(this.newPhone);
+      this.addPhoneDialog = false;
     },
     addEmail(){
       this.editingContact.emailAddresses.push(this.newEmail);
+      this.addEmailDialog = false;
     },
     deletePhone(index) {
       this.editingContact.phoneNums.splice(index, 1);

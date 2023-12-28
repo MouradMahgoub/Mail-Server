@@ -104,7 +104,7 @@ export default {
                 }
             ],
             from: '',
-            contacts:['djd', 'cnmcn', 'djhjd'],
+            contacts:[],
             prioretyList:['very high', 'high',  'medium', 'low','very low'],
             dialog: false,
             priorety: 'low',
@@ -115,6 +115,12 @@ export default {
             // attachments:[],
         }
     },
+
+
+    mounted() {
+      this.fetchContacts();
+    },
+
     methods:{
         handleFileChange(event) {
             const files = event.target.files;
@@ -217,14 +223,25 @@ console.error('Error sending email:', error);
             // if (this.$refs.form.validate()) this.send();
             this.send();
         },
+
+        async fetchContacts(){
+          await fetch('http://localhost:8085/getContacts')
+          .then(response => response.json())
+          .then(data => {
+            for(let s of data){
+              for(let e of s.emailAddresses){
+                this.contacts.push(e);
+              }
+            }
+          })
+        },
+      
         async send() {
-
             try {
-
               let x = {
                 params:{
                   email:{
-                    from: this.from,
+                    from:  JSON.parse(localStorage.getItem('user')).emailAddress,
                     to: this.to,
                     date: new Date().toLocaleString(),
                     importance: this.priorety,
@@ -234,7 +251,7 @@ console.error('Error sending email:', error);
                   }
               }
             }
-
+            this.fetchContacts();
             //print x in json fromat in the console
             console.log(JSON.stringify(x, null, 2));
 
@@ -248,6 +265,7 @@ console.error('Error sending email:', error);
               });
               console.log(JSON.stringify(this.uploadedFiles, null, 2));
               // console.log(JSON.stringify(this., null, 2));
+
       } catch (error) {
         console.error('Error sending email:', error);
       } finally {

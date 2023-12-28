@@ -22,12 +22,12 @@
         value="send" 
         @click="navigateTo('send')"
         ></v-list-item>
-        <v-list-item 
+        <!-- <v-list-item 
         prepend-icon="mdi-label-variant-outline" 
         title="Important" 
         value="important"  
         @click="navigateTo('important')"
-        ></v-list-item>
+        ></v-list-item> -->
         <v-list-item 
         prepend-icon="mdi-file" 
         title="Draft" 
@@ -174,7 +174,6 @@ export default {
             this.newLabel = ''; // Clear the input field
           },
           
-    // Delete a label
     deleteLabel(label) {
       // this.labels.splice(this.labels.indexOf(label), 1);
       fetch('http://localhost:8085/deleteLabel', {
