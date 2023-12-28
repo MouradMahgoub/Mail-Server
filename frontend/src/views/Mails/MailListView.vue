@@ -51,12 +51,11 @@
                 </v-col>
                 
             </v-row>
-            
             <div class="refreshbutton">
-            <v-btn icon @click="refreshPage">
-            <v-icon size="50">mdi-refresh</v-icon>
-            </v-btn>
-            </div>
+      <v-btn icon @click="refreshPage">
+        <v-icon size="50">mdi-refresh</v-icon>
+        </v-btn>
+    </div>
         </v-toolbar>
         
         <v-btn
@@ -73,9 +72,12 @@
         >
         Apply
         </v-btn>
+        
 
 
-        <v-row v-show="selectedMails.length > 0">
+
+        <!-- <v-toolbar v-if="selectedMails.length > 0"> -->
+            <v-row v-show="selectedMails.length > 0">
                 <v-col cols="3" >
                     <v-select
                     v-model="selectedFolder"
@@ -117,6 +119,7 @@
                     ></v-checkbox> 
                     <v-list-item :value="mail"  @click="EmailDialog = true">
                         <div  class="bs" v-on:click="showEmail(mail,index)">
+                            <!-- {{ mail }} -->
                             <p class="truncate">{{ mail.from }}</p>
                             <p class="truncate">{{ mail.subject }}</p>
                             <p class="truncate">{{ mail.date }}</p>
@@ -248,12 +251,8 @@
     methods: {
 
         async refreshPage() {
-            // let temp = this.currentFolder;
-            // await window.location.reload().then(() => {
-            //     this.changeList(this.$route.params.name);
-            // });
-            // this.changeList(temp);
-            // this.changeList(this.$route.params.name);
+             let temp = this.currentFolder;
+            this.changeList(temp)
         },
         openAttachment(file) {
             const pdfUrl = file.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
@@ -313,6 +312,7 @@
             this.selectedindex=this.previewindex-1,
             this.selectedEmail=this.currentList[this.selectedindex]
         },
+            
         clear(){
             this.sortKey= null,
             this.searchKey='',

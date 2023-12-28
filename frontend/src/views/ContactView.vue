@@ -124,12 +124,19 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
-      <div v-for="contact in contacts" :key="contact.name" class="contact">
+      <div v-for="(contact,index) in contacts" :key="contact.name" class="contact">
         <v-list-item @click="openContactDialog(contact)">
-          <div class="bs">
-            <p class="truncate">{{ contact.name }}</p>
-            <p class="truncate">{{ contact.emailAddresses[0] }}</p>
-            <p class="truncate">{{ contact.phoneNums[0] }}</p>
+          <div class="bs" style="background-color: rgb(233, 233, 233);">
+            <div style="color: green;">Contact {{ index+1 }}</div>
+            <p class="truncate">
+              <span style="color: blue; margin-right: 5px;">Name:</span>{{ contact.name }}
+            </p>
+            <p class="truncate">
+              <span style="color: blue; margin-right: 5px;">Email:</span>{{ contact.emailAddresses[0] }}
+            </p>
+            <p class="truncate">
+              <span style="color: blue; margin-right: 5px;">Phone:</span>{{ contact.phoneNums[0] }}
+            </p>
           </div>
         </v-list-item>
         
