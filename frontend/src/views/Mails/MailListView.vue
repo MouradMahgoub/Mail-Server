@@ -51,7 +51,11 @@
                 </v-col>
                 
             </v-row>
-            
+            <div class="refreshbutton">
+      <v-btn icon @click="refreshPage">
+        <v-icon size="50">mdi-refresh</v-icon>
+        </v-btn>
+    </div>
         </v-toolbar>
         
         <v-btn
@@ -67,13 +71,9 @@
         >
         Apply
         </v-btn>
-        <div class="refreshbutton">
-      <v-btn icon @click="refreshPage">
-        <v-icon size="50">mdi-refresh</v-icon>
-        </v-btn>
-    </div>
 
-</v-toolbar>
+
+
 
 
         <!-- <v-toolbar v-if="selectedMails.length > 0"> -->
@@ -118,6 +118,7 @@
                     ></v-checkbox> 
                     <v-list-item :value="mail"  @click="EmailDialog = true">
                         <div  class="bs" v-on:click="showEmail(mail,index)">
+                            <!-- {{ mail }} -->
                             <p class="truncate">{{ mail.from }}</p>
                             <p class="truncate">{{ mail.subject }}</p>
                             <p class="truncate">{{ mail.date }}</p>
@@ -307,6 +308,7 @@
         onjumping(){
             this.selectedindex=this.previewindex-1,
             this.selectedEmail=this.currentList[this.selectedindex]
+        },
             
         clear(){
             this.sortKey= null,
@@ -341,7 +343,7 @@
             this.showContacts = false;
             
             this.clear();
-            await fetch('http://localhost:8081/getEmails'
+            await fetch('http://localhost:8085/getEmails'
 
             , {
                 method: 'POST',
@@ -366,7 +368,7 @@
 
         async applyFilters(){
 
-            await fetch('http://localhost:8081/filterEmails', {
+            await fetch('http://localhost:8085/filterEmails', {
 
                 method: 'POST',
                 headers: {

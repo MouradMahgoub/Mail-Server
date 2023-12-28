@@ -176,7 +176,39 @@ export default {
             this.attachments=[];
             
         },
-        close(){
+        async close(){
+          try {
+
+let x = {
+  params:{
+    email:{
+      from: this.from,
+      to: this.to,
+      date: new Date().toLocaleString(),
+      importance: this.priorety,
+      subject: this.subject,
+      body: this.body,
+      attachments: this.uploadedFiles,
+    }
+}
+}
+
+//print x in json fromat in the console
+console.log(JSON.stringify(x, null, 2));
+
+// Simulate sending data to a server
+await fetch('http://localhost:8085/toDraft', {
+  method: 'PUT',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(x),
+});
+console.log(JSON.stringify(this.uploadedFiles, null, 2));
+// console.log(JSON.stringify(this., null, 2));
+} catch (error) {
+console.error('Error sending email:', error);
+} 
             this.dialog = false;
             this.clear();
         },

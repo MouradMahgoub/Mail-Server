@@ -331,7 +331,7 @@ export default {
 
       async applyFiltersContacts(){
             if(this.searchKey != null && this.searchKey != ''){
-                await fetch('http://localhost:8081/searchContact', {
+                await fetch('http://localhost:8085/searchContact', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -351,7 +351,7 @@ export default {
                 .catch(error => console.error('Error applying filters:', error));
             }
             if(this.sortKey != null && this.sortKey != ''){
-                await fetch('http://localhost:8081/sortContacts')
+                await fetch('http://localhost:8085/sortContacts')
                 .then(response => response.json())
                 .then(data => {
                     this.contacts = data;
