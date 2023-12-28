@@ -13,7 +13,6 @@
     "phoneNums" : [ "010123" ],
     "importance" : "1"
   } ],
-
   "folders" : {
     "inbox" : {
       "name" : "inbox",
@@ -38,6 +37,14 @@
     "send" : {
       "name" : "send",
       "emails" : [ {
+        "from" : "",
+        "to" : [ "nffkj" ],
+        "subject" : "nmn",
+        "body" : "nmdmnd",
+        "attachments" : [ ],
+        "importance" : "high",
+        "date" : "2023-12-28 07:39:13"
+      }, {
         "from" : "moura@gmail.com",
         "to" : [ "ahmed" ],
         "subject" : "moura hamo",
@@ -54,7 +61,6 @@
         "importance" : "low",
         "date" : "2023-12-28 03:40:02"
       } ],
-
       "subFolders" : [ ]
     },
     "trash" : {
@@ -69,6 +75,5 @@
       "emails" : [ ],
       "subFolders" : [ ]
     } ]
-
   }
 }

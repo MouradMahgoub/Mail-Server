@@ -124,12 +124,19 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
-      <div v-for="contact in contacts" :key="contact.name" class="contact">
+      <div v-for="(contact,index) in contacts" :key="contact.name" class="contact">
         <v-list-item @click="openContactDialog(contact)">
-          <div class="bs">
-            <p class="truncate">{{ contact.name }}</p>
-            <p class="truncate">{{ contact.emailAddresses[0] }}</p>
-            <p class="truncate">{{ contact.phoneNums[0] }}</p>
+          <div class="bs" style="background-color: rgb(233, 233, 233);">
+            <div style="color: green;">Contact {{ index+1 }}</div>
+            <p class="truncate">
+              <span style="color: blue; margin-right: 5px;">Name:</span>{{ contact.name }}
+            </p>
+            <p class="truncate">
+              <span style="color: blue; margin-right: 5px;">Email:</span>{{ contact.emailAddresses[0] }}
+            </p>
+            <p class="truncate">
+              <span style="color: blue; margin-right: 5px;">Phone:</span>{{ contact.phoneNums[0] }}
+            </p>
           </div>
         </v-list-item>
         
@@ -331,7 +338,7 @@ export default {
 
       async applyFiltersContacts(){
             if(this.searchKey != null && this.searchKey != ''){
-                await fetch('http://localhost:8081/searchContact', {
+                await fetch('http://localhost:8085/searchContact', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -345,13 +352,11 @@ export default {
                 .then(response => response.json())
                 .then(data => {
                     this.contacts = data;
-                    console.log("searched...........................");
-                    console.log(data);
                 })
                 .catch(error => console.error('Error applying filters:', error));
             }
             if(this.sortKey != null && this.sortKey != ''){
-                await fetch('http://localhost:8081/sortContacts')
+                await fetch('http://localhost:8085/sortContacts')
                 .then(response => response.json())
                 .then(data => {
                     this.contacts = data;
@@ -501,9 +506,11 @@ console.log(JSON.stringify(this.contacts, null, 2));
     },
     addPhone() {
       this.editingContact.phoneNums.push(this.newPhone);
+      this.addPhoneDialog = false;
     },
     addEmail(){
       this.editingContact.emailAddresses.push(this.newEmail);
+      this.addEmailDialog = false;
     },
     deletePhone(index) {
       this.editingContact.phoneNums.splice(index, 1);

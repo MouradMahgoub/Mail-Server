@@ -1,0 +1,88 @@
+{
+  "name" : "mero",
+  "emailAddress" : "mero@gmail.com",
+  "password" : "123456",
+  "contacts" : [ {
+    "name" : "ahmed",
+    "emailAddresses" : [ "mourad", "mouradmahgoub710@gmail.com" ],
+    "phoneNums" : [ "123", "1215151515" ],
+    "importance" : "1"
+  }, {
+    "name" : "Mourad Mahgoub",
+    "emailAddresses" : [ "mdmd" ],
+    "phoneNums" : [ "0100425" ],
+    "importance" : "1"
+  }, {
+    "name" : "naroooo",
+    "emailAddresses" : [ "mourad" ],
+    "phoneNums" : [ "123" ],
+    "importance" : "1"
+  } ],
+  "folders" : {
+    "inbox" : {
+      "name" : "inbox",
+      "emails" : [ ],
+      "subFolders" : [ ]
+    },
+    "draft" : {
+      "name" : "draft",
+      "emails" : [ ],
+      "subFolders" : [ ]
+    },
+    "starred" : {
+      "name" : "starred",
+      "emails" : [ ],
+      "subFolders" : [ ]
+    },
+    "important" : {
+      "name" : "important",
+      "emails" : [ ],
+      "subFolders" : [ ]
+    },
+    "send" : {
+      "name" : "send",
+      "emails" : [ {
+        "from" : "mero@gmail.com",
+        "to" : [ "", "gfgf" ],
+        "subject" : "fggfg",
+        "body" : "fgggf",
+        "attachments" : [ ],
+        "importance" : "low",
+        "date" : "2023-12-28 08:56:15"
+      }, {
+        "from" : "mero@gmail.com",
+        "to" : [ "", "gfgf" ],
+        "subject" : "fggfg",
+        "body" : "fgggf",
+        "attachments" : [ ],
+        "importance" : "low",
+        "date" : "2023-12-28 08:53:34"
+      } ],
+      "subFolders" : [ ]
+    },
+    "trash" : {
+      "name" : "trash",
+      "emails" : [ ],
+      "subFolders" : [ ],
+      "deletedmMails" : { },
+      "emailsFromMap" : [ ]
+    },
+    "labels" : [ {
+      "name" : "moramm",
+      "emails" : [ ],
+      "subFolders" : [ ]
+    }, {
+      "name" : "bsbs",
+      "emails" : [ {
+        "from" : "{\"emailAddress\":\"mero@gmail.com\",\"password\":\"123456\"}",
+        "to" : [ "mdmd" ],
+        "subject" : "msmsmsm",
+        "body" : "smsmmsm",
+        "attachments" : [ ],
+        "importance" : "low",
+        "date" : "2023-12-28 08:29:24"
+      } ],
+      "subFolders" : [ ]
+    } ]
+  }
+}
