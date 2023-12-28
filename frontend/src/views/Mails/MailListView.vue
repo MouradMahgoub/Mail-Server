@@ -72,13 +72,8 @@
         >
         Apply
         </v-btn>
-        <div class="refreshbutton">
-      <v-btn icon @click="refreshPage">
-        <v-icon size="50">mdi-refresh</v-icon>
-        </v-btn>
-    </div>
+        
 
-</v-toolbar>
 
 
         <!-- <v-toolbar v-if="selectedMails.length > 0"> -->
@@ -256,12 +251,8 @@
     methods: {
 
         async refreshPage() {
-            // let temp = this.currentFolder;
-            // await window.location.reload().then(() => {
-            //     this.changeList(this.$route.params.name);
-            // });
-            // this.changeList(temp);
-            // this.changeList(this.$route.params.name);
+             let temp = this.currentFolder;
+            this.changeList(temp)
         },
         openAttachment(file) {
             const pdfUrl = file.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
