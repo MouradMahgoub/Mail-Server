@@ -1,0 +1,65 @@
+{
+  "name" : "bassam",
+  "emailAddress" : "bassam@email.com",
+  "password" : "your_password_here",
+  "contacts" : [ ],
+  "folders" : {
+    "inbox" : {
+      "name" : "inbox",
+      "emails" : [ {
+        "from" : "osama@email.com",
+        "to" : [ "bassam@email.com" ],
+        "subject" : "fmnm",
+        "body" : "m,nmf",
+        "attachments" : [ ],
+        "importance" : "low",
+        "date" : "2023-12-28 06:35:04"
+      } ],
+      "subFolders" : [ ]
+    },
+    "draft" : {
+      "name" : "draft",
+      "emails" : [ ],
+      "subFolders" : [ ]
+    },
+    "starred" : {
+      "name" : "starred",
+      "emails" : [ ],
+      "subFolders" : [ ]
+    },
+    "important" : {
+      "name" : "important",
+      "emails" : [ ],
+      "subFolders" : [ ]
+    },
+    "send" : {
+      "name" : "send",
+      "emails" : [ {
+        "from" : "bassam@email.com",
+        "to" : [ "osama@email.com" ],
+        "subject" : "fmnm",
+        "body" : "m,nmf",
+        "attachments" : [ ],
+        "importance" : "low",
+        "date" : "2023-12-28 06:38:07"
+      }, {
+        "from" : "osama@email.com",
+        "to" : [ "bassam@email.com" ],
+        "subject" : "fmnm",
+        "body" : "m,nmf",
+        "attachments" : [ ],
+        "importance" : "low",
+        "date" : "2023-12-28 06:35:04"
+      } ],
+      "subFolders" : [ ]
+    },
+    "trash" : {
+      "name" : "trash",
+      "emails" : [ ],
+      "subFolders" : [ ],
+      "deletedmMails" : { },
+      "emailsFromMap" : [ ]
+    },
+    "labels" : [ ]
+  }
+}
