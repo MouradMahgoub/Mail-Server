@@ -67,7 +67,7 @@
   <style>
    .greeting{
     color: rgb(137, 184, 228);
-    margin-left: 36%;
+    margin-left: 40%;
    }
    .sentence{
     color: gray;
